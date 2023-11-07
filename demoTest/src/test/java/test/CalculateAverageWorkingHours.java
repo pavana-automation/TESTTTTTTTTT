@@ -31,14 +31,14 @@ public class CalculateAverageWorkingHours {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.get("http://10.10.10.250:4848/prohance/"); 
+		driver.get("http://10.10.10.250:6688/prohance/"); 
 		
 		}
 		
 		@Test()
 		 public void enableDiasbleChkInCud() throws InterruptedException
 		 {
-			 	objLoginPage.clickLogin("pavana_admin", "1", driver);
+			 	objLoginPage.clickLogin("pavana", "1", driver);
 		        CUDPage.clickQuickLink(driver);
 		        CUDPage.clickCUDLink(driver);
 		        Thread.sleep(2000);

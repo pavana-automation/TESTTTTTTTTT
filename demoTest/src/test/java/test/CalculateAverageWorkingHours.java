@@ -38,7 +38,7 @@ public class CalculateAverageWorkingHours {
 		@Test()
 		 public void enableDiasbleChkInCud() throws InterruptedException
 		 {
-			 	objLoginPage.clickLogin("admink", "1", driver);
+			 	objLoginPage.clickLogin("pavana_admin", "1", driver);
 		        CUDPage.clickQuickLink(driver);
 		        CUDPage.clickCUDLink(driver);
 		        Thread.sleep(2000);
@@ -68,6 +68,7 @@ public class CalculateAverageWorkingHours {
 				CUDPage.clickFetchBtn(driver);
 				Thread.sleep(2000);
 				CUDPage.calculateTotalHrsVsAvgHrsDays(driver);
+				driver.quit();
 				
 		 }
 

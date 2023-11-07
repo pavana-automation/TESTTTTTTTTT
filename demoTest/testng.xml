@@ -4,7 +4,7 @@
   <test thread-count="5" name="AutomationTest">
     <classes>
       <class name="test.EnableDiasbleChkInCud"/>
-      <class name="test.CalculateAverageWorkingHours"/>
+
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

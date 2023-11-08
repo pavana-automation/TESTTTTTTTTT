@@ -49,13 +49,13 @@ public class loginPage{
     		driver.findElement(By.xpath("//input[@value='Yes']")).click();
     		}catch(org.openqa.selenium.NoSuchElementException e1)
     		{
-    			driver.findElement(By.id("userProfileDropdown")).click();
-    			driver.findElement(By.xpath("//i[@class='fa fa-power-off']")).click();
+    			//driver.findElement(By.id("userProfileDropdown")).click();
+    			//driver.findElement(By.xpath("//i[@class='fa fa-power-off']")).click();
     			return true;
     		}
     	}
-    	driver.findElement(By.id("userProfileDropdown")).click();
-		driver.findElement(By.xpath("//i[@class='fa fa-power-off']")).click();
+    	//driver.findElement(By.id("userProfileDropdown")).click();
+		//driver.findElement(By.xpath("//i[@class='fa fa-power-off']")).click();
 		return true;
 	
     }

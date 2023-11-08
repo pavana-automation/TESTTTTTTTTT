@@ -55,6 +55,7 @@ public class EnableDiasbleChkInCud {
 	        Thread.sleep(2000);
 			CUDPage.clickCustomizeReportLink(driver);
 			Thread.sleep(2000);
+			
 			chkpt1.info("Select the values and chk for USER/DAYS ENABLE/DISABLE");
 			CUDPage.setValueForCustReportViewFilter("UserGroupId", driver);
 			CUDPage.setValueForCustomerDurationView("M", driver);

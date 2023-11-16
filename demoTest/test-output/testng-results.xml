@@ -1,21 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="1" total="4" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-11-08T17:37:54 IST" name="Default suite" finished-at="2023-11-08T17:38:31 IST" duration-ms="37240">
+  <suite started-at="2023-11-16T14:39:10 IST" name="Suite" finished-at="2023-11-16T14:39:30 IST" duration-ms="20678">
     <groups>
+      <group name="adminLogin6688">
+        <method signature="EnableDiasbleChkInCud.enableDiasbleChkInCud(java.util.HashMap)[pri:0, instance:test.EnableDiasbleChkInCud@5e8cda75]" name="enableDiasbleChkInCud" class="test.EnableDiasbleChkInCud"/>
+      </group> <!-- adminLogin6688 -->
+      <group name="adminLogin4848">
+        <method signature="Login.login(java.util.HashMap)[pri:0, instance:test.Login@54f4a7f0]" name="login" class="test.Login"/>
+      </group> <!-- adminLogin4848 -->
     </groups>
-    <test started-at="2023-11-08T17:37:54 IST" name="Default test" finished-at="2023-11-08T17:38:31 IST" duration-ms="37240">
+    <test started-at="2023-11-16T14:39:10 IST" name="Test" finished-at="2023-11-16T14:39:30 IST" duration-ms="20678">
       <class name="test.EnableDiasbleChkInCud">
-        <test-method is-config="true" signature="browser()[pri:0, instance:test.EnableDiasbleChkInCud@1a6d8329]" started-at="2023-11-08T17:37:54 IST" name="browser" finished-at="2023-11-08T17:37:59 IST" duration-ms="5806" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browser -->
-        <test-method signature="enableDiasbleChkInCud()[pri:0, instance:test.EnableDiasbleChkInCud@1a6d8329]" started-at="2023-11-08T17:37:59 IST" name="enableDiasbleChkInCud" finished-at="2023-11-08T17:38:31 IST" duration-ms="31373" status="PASS">
+        <test-method signature="enableDiasbleChkInCud(java.util.HashMap)[pri:0, instance:test.EnableDiasbleChkInCud@5e8cda75]" started-at="2023-11-16T14:39:10 IST" name="enableDiasbleChkInCud" data-provider="getData" finished-at="2023-11-16T14:39:22 IST" duration-ms="11806" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{password=1, username=pavana}]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- enableDiasbleChkInCud -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:test.EnableDiasbleChkInCud@5e8cda75]" started-at="2023-11-16T14:39:29 IST" name="teardown" finished-at="2023-11-16T14:39:30 IST" duration-ms="944" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
       </class> <!-- test.EnableDiasbleChkInCud -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="test.Login">
+        <test-method signature="login(java.util.HashMap)[pri:0, instance:test.Login@54f4a7f0]" started-at="2023-11-16T14:39:22 IST" name="login" data-provider="getData" finished-at="2023-11-16T14:39:26 IST" duration-ms="4030" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{password=1, username=pavana_admin}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="login(java.util.HashMap)[pri:0, instance:test.Login@54f4a7f0]" started-at="2023-11-16T14:39:26 IST" name="login" data-provider="getData" finished-at="2023-11-16T14:39:29 IST" duration-ms="3357" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{password=1, username=vinay_admiin}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+      </class> <!-- test.Login -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

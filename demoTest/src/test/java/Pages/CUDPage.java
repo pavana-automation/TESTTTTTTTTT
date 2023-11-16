@@ -10,13 +10,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import test.login;
 
 
 public class CUDPage {
+	
+	WebDriver driver;
 	
 	By quickLink = By.id("quickLinkMenu");
 	
@@ -59,13 +61,21 @@ public class CUDPage {
 	
 	By tableCount = By.xpath("//*[@id='efficiencyList']/tbody/tr");
 	
+	 public CUDPage(WebDriver driver)
+	    {
+	 
+	        this.driver=driver;
+	        PageFactory.initElements(driver,this); 
+	             
+	}
 	
 	
-	public void clickQuickLink(WebDriver driver) {
+	
+	public void clickQuickLink() {
 		driver.findElement(quickLink).click();
 	}
 	
-	public void clickCUDLink(WebDriver driver) throws InterruptedException {
+	public void clickCUDLink() throws InterruptedException {
 		driver.findElement(CUDLink).click();
         //Frame switch
         Set<String> handles=driver.getWindowHandles();
@@ -76,7 +86,7 @@ public class CUDPage {
 		Thread.sleep(2000);
 	}
 	
-	public List<WebElement> getTotalNumberOfRow(WebDriver driver) {
+	public List<WebElement> getTotalNumberOfRow() {
 		List<WebElement> totalRowCount = driver.findElements(table);
 		for(int i =1; i<totalRowCount.size();i++)
 		{
@@ -89,15 +99,15 @@ public class CUDPage {
 		return totalRowCount;
 	}
 	
-	public void clickCustomizeReportLink(WebDriver driver) {
+	public void clickCustomizeReportLink() {
 		driver.findElement(CustomizeReportLink).click();
 	}
 	
-	public void selectdiplayOverALLChkBox(WebDriver driver) {
+	public void selectdiplayOverALLChkBox() {
 		driver.findElement(diplayOverALLChkBox).click();
 	}
 	
-	public void setValueForCustReportViewFilter(String valueforCustReportViewFilter, WebDriver driver)
+	public void setValueForCustReportViewFilter(String valueforCustReportViewFilter)
 	{
 		Select value= new Select(driver.findElement(customReportViewByFilter));
 		value.selectByValue(valueforCustReportViewFilter);
@@ -105,47 +115,47 @@ public class CUDPage {
 		
 	}
 	
-	public void setValueForUserType(String usertype, WebDriver driver) {
+	public void setValueForUserType(String usertype) {
 		Select value= new Select(driver.findElement(UserType));
 		value.selectByVisibleText(usertype);
 	}
 	
-	public void setValueForCustomerDurationView(String valueForCustomerDurationView, WebDriver driver)
+	public void setValueForCustomerDurationView(String valueForCustomerDurationView)
 	{
 		Select value1= new Select(driver.findElement(CustomerDurationView));
 		value1.selectByValue(valueForCustomerDurationView);
 	}
 	
-	public void setValueForUsersChk(String valueForUsersChk, WebDriver driver)
+	public void setValueForUsersChk(String valueForUsersChk)
 	{
 		Select value2= new Select(driver.findElement(UsersChk));
 		value2.selectByValue(valueForUsersChk);
 	}
 	
-	public boolean usersChkIsEnabled(WebDriver driver) {
+	public boolean usersChkIsEnabled() {
 		boolean result = driver.findElement(UsersChk).isEnabled();
 		return result;
 	}
 	
-	public boolean daysChkIsEnabled(WebDriver driver) {
+	public boolean daysChkIsEnabled() {
 		boolean daysResult = driver.findElement(DaysChk).isEnabled();
 		return daysResult;
 	}
 	
-	public void selectLHrs(WebDriver driver) {
+	public void selectLHrs() {
 		driver.findElement(lHrs).click();
 	}
-	public void selectAvgHrs(WebDriver driver) {
+	public void selectAvgHrs() {
 		driver.findElement(avgHrs).click();
 	}
-	public void selectUsersChk(WebDriver driver) {
+	public void selectUsersChk() {
 		driver.findElement(UsersChk).click();
 	}
-	public void selectDaysChk(WebDriver driver) {
+	public void selectDaysChk() {
 		driver.findElement(DaysChk).click();
 	}
 	
-	public void selectImageOption(WebDriver driver)
+	public void selectImageOption()
 	{
 		boolean isSelected = driver.findElement(By.xpath("//*[@id=\"all_select\"]")).isSelected();
 		if(isSelected == false)
@@ -158,34 +168,34 @@ public class CUDPage {
 		driver.findElement(By.xpath("//*[@id=\"daysDialogDiv\"]/div/div/div[1]/div/div/div[2]/button")).click();
 	}
 	
-	public void clickUpdateFieldsBtn(WebDriver driver) {
+	public void clickUpdateFieldsBtn() {
 		driver.findElement(UpdateFieldsBtn).click();
 	}
 	
-	public void clickCustomBtn(WebDriver driver) {
+	public void clickCustomBtn() {
 		driver.findElement(CustomBtn).click();
 	}
 	
-	public void selectYear(String year , WebDriver driver) {
+	public void selectYear(String year) {
 		Select yearBy = new Select(driver.findElement(By.id("selectedMonthYear")));
 		yearBy.selectByValue(year);
 	}
 	
-	public void selectMonth(String month , WebDriver driver) {
+	public void selectMonth(String month) {
 		Select MonthBy = new Select(driver.findElement(By.id("selectedMonth")));
 		MonthBy.selectByVisibleText(month);
 	}
 	
-	public void clickFetchBtn(WebDriver driver) {
+	public void clickFetchBtn() {
 		driver.findElement(fetchBtn).click();
 	}
 	
-	public int getTableCount(WebDriver driver) {
+	public int getTableCount() {
 		int rowcount = driver.findElements(By.xpath("//*[@id='efficiencyList']/tbody/tr")).size();
 		return rowcount;
 	}
 	
-	public void calculateTotalHrsVsAvgHrsDays(WebDriver driver) {
+	public void calculateTotalHrsVsAvgHrsDays() {
 	
 		int rowcount = driver.findElements(By.xpath("//*[@id='efficiencyList']/tbody/tr")).size();
 		for(int i=1;i<=rowcount;i++) {

@@ -1,4 +1,4 @@
-package test;
+/*package test;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
@@ -72,4 +72,4 @@ public class CalculateAverageWorkingHours {
 				
 		 }
 
-}
+}*/

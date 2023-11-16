@@ -1,4 +1,4 @@
-package org.prohance.test.demoTest;
+/*package org.prohance.test.demoTest;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -33,7 +33,7 @@ public class App
 		driver.manage().window().maximize();
 		//driver.manage().timeouts().implicitlyWait(10, null);
 		
-/*		open URL	*/
+		open URL	
 		
 		driver.get("http://10.10.10.250:6688/prohance/");
 		//driver.get("http://10.10.10.250:4848/prohance/");
@@ -51,12 +51,12 @@ public class App
 		//Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 		//wait.until(ExpectedConditions.titleIs("quickLinkMenu"));
 		
-/*		GoTo QuickLink	*/
+		GoTo QuickLink	
 		driver.findElement(By.id("quickLinkMenu")).click();
 		Thread.sleep(2000);
 		
-/*		1) GoTo COD Page(Window switch)	
-*/
+		1) GoTo COD Page(Window switch)	
+
 		driver.findElement(By.xpath("//li[@id='quickLink_tr_6']")).click();
 		Set<String> handles=driver.getWindowHandles();
 		Iterator it=handles.iterator();
@@ -70,10 +70,10 @@ public class App
 		//wait.equals(childwindow);
 		
 		
-/*		GoTo CustomizeReportPage	
+		GoTo CustomizeReportPage	
  * 		Fill the given data(CustomerReport,CustomerDuration,UserType)
  * 
- * */
+
 		
 		
 		driver.findElement(By.id("show-content-menu-main")).click();
@@ -97,7 +97,7 @@ public class App
  */
 		
 		//List<ArrayList> count =  (List<ArrayList>) driver.findElement(By.xpath("//table[@class=\"table table-bordered\"]//input[@type=\"checkbox\"]")).getSize();
-		List<WebElement> a = driver.findElements(By.xpath("//table[@class=\"table table-bordered\"]//input[@type=\"checkbox\"]"));
+/*		List<WebElement> a = driver.findElements(By.xpath("//table[@class=\"table table-bordered\"]//input[@type=\"checkbox\"]"));
 		for(int i =1; i<a.size();i++)
 		{
 			if(a.get(i).isSelected())
@@ -145,7 +145,7 @@ public class App
  */
 
 		
-		for(int i=1;i<=rowcount;i++) {
+/*		for(int i=1;i<=rowcount;i++) {
 			try {
 				String totHrs = driver.findElement(By.xpath("//*[@id='efficiencyList']/tbody/tr["+i+"]/td[3]")).getText();
 				String  days = driver.findElement(By.xpath("//*[@id='efficiencyList']/tbody/tr["+i+"]/td[6]")).getText();
@@ -191,10 +191,10 @@ public class App
 	 * Auto-generated method stub return null; }
 	 */
 	
-	
+/*	
 	public static void main( String[] args )
     {
     	
 		System.out.print("hello");
     }
-}
+}*/

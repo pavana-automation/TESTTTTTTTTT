@@ -1,64 +1,86 @@
 package Pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class loginPage{
 	
-	By username = By.id("tlogin");
+	WebDriver driver;
 	
-	By password = By.id("tpwdsaved");
+	@FindBy(id = "tlogin")
+	WebElement username;
 	
-	By login1 = By.id("loginSubmitFrm");
+	@FindBy(id = "tpwdsaved")
+	WebElement password;
 	
-	  //Set user name in textbox
-
-    public void  setUserName(String strUserName,WebDriver driver){
-
-    	System.out.println(strUserName);
-        driver.findElement(username).sendKeys(strUserName);
-        //this.setUserName(strUserName);
-
+	@FindBy(id = "loginSubmitFrm")
+	WebElement login1;
+	
+	@FindBy(id= "error-msg-ajax")
+	WebElement errmsg;
+	
+	@FindBy(xpath= "//div[@class='large-duplicate-session']")
+	WebElement duplicateScreen;
+	
+	@FindBy(xpath= "//input[@value='Yes']")
+	WebElement yesBtn;
+	
+	 public loginPage(WebDriver driver)
+	    {
+	 
+	        this.driver=driver;
+	        PageFactory.initElements(driver,this); 
+	             
+	}
+    //Set UserName
+    public void  setUserName(String username){
+    	this.username.sendKeys(username);
     }
     
-    //Set password in password textbox
-    public void setPassword(String strPassword,WebDriver driver){
-
-         driver.findElement(password).sendKeys(strPassword);
-         //this.setPassword(strPassword);
-
+    //Set Password
+    public void setPassword(String password){
+         this.password.sendKeys(password);
     }
     
   //Click on login button
-    public boolean clickLogin(String strUserName, String strPassword, WebDriver driver) throws InterruptedException{
-    	
-    	driver.findElement(username).sendKeys(strUserName);
-    	driver.findElement(password).sendKeys(strPassword);
-    	driver.findElement(login1).click();
-    	Thread.sleep(2000);
-    	//boolean errormsg=driver.findElement(By.id("error-msg-ajax")).isDisplayed();
+    public boolean clickLogin(String username, String password){
+    	this.username.sendKeys(username);
+    	this.password.sendKeys(password);
+    	this.login1.click();
     	try {
-    			driver.findElement(By.id("error-msg-ajax")).isDisplayed();
-    			return false;
-    	}catch(org.openqa.selenium.NoSuchElementException e)
+    	if(this.errmsg.isDisplayed())
     	{
-    		try {
-    		driver.findElement(By.xpath("//div[@class='large-duplicate-session']")).isDisplayed();
-    		driver.findElement(By.xpath("//input[@value='Yes']")).click();
-    		}catch(org.openqa.selenium.NoSuchElementException e1)
-    		{
-    			//driver.findElement(By.id("userProfileDropdown")).click();
-    			//driver.findElement(By.xpath("//i[@class='fa fa-power-off']")).click();
-    			return true;
-    		}
+    		return false;
     	}
-    	//driver.findElement(By.id("userProfileDropdown")).click();
-		//driver.findElement(By.xpath("//i[@class='fa fa-power-off']")).click();
+    	else if(this.duplicateScreen.isDisplayed())
+    	{
+    		this.yesBtn.click();
+    		return true;
+    	}
+    	}
+    	catch(org.openqa.selenium.NoSuchElementException e)
+    	{
+    		System.out.println("EXCEPTION IS CAUGHT");
+    	}
 		return true;
-	
+		
     }
     
+    public void clickLogout()
+    {
+    	Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	wait.until(ExpectedConditions.elementToBeClickable(By.id("userProfileDropdown"))).click();
+    	wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Logout')]"))).click();
+    	//new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Logout')]"))).click();
+		//driver.findElement(By.xpath("//span[contains(text(),'Logout')]")).click();
+    }
     		
 }

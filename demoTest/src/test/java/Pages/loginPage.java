@@ -29,7 +29,7 @@ public class loginPage{
 	
 	@FindBy(xpath= "//div[@class='large-duplicate-session']")
 	WebElement duplicateScreen;
-	
+	//span[contains(text(),"My Activities")]
 	@FindBy(xpath= "//input[@value='Yes']")
 	WebElement yesBtn;
 	

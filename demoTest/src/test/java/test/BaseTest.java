@@ -37,8 +37,6 @@ public class BaseTest {
 		return driver;
 	}
 
-	
-
 	public WebDriver initializeDriver6688() {
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\jayanti.p.JAMOCHAHQ\\Downloads\\chromedriver-win64\\chromedriver.exe");
 	//driver = new ChromeDriver();
